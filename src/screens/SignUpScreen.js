@@ -9,7 +9,7 @@ import {
     Platform,
     StyleSheet,
     ScrollView,
-    StatusBar
+    StatusBar, Alert
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
@@ -81,7 +81,7 @@ const SignUpScreen = ({ navigation }) => {
     }
 
     const handleSignUp = (emailId, f_name, m_name, l_name, mobile, address, state, country, password, confirm_password) => {
-        alert(emailId + " " + f_name + " " + m_name + " " + l_name + " " + mobile + " " + address + " " + state + " " + country + " " + password + " " + confirm_password);
+        // alert(emailId + " " + f_name + " " + m_name + " " + l_name + " " + mobile + " " + address + " " + state + " " + country + " " + password + " " + confirm_password);
         fetch('https://employeelist-e8dca.firebaseio.com/employees.json',
             {
                 method: 'POST',
@@ -102,9 +102,12 @@ const SignUpScreen = ({ navigation }) => {
                     isActive: true
                 })
             }
+
         ).then((data) => {
-            console.log(data.status)
+            console.log(data.ok)
             console.log(JSON.stringify(data));
+            Alert.alert('Chateaux', 'Registered successfully!');
+            navigation.navigate('SignInScreen');
         });
 
     }

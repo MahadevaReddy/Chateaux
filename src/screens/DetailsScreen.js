@@ -90,7 +90,7 @@ const DetailsScreen = ({ navigation, route }) => {
     }
 
     const handleUpdate = (emailId, f_name, m_name, l_name, mobile, address, state, country) => {
-        alert(emailId + " " + f_name + " " + m_name + " " + l_name + " " + mobile + " " + address + " " + state + " " + country);
+        // alert(emailId + " " + f_name + " " + m_name + " " + l_name + " " + mobile + " " + address + " " + state + " " + country);
         fetch(`https://employeelist-e8dca.firebaseio.com/employees/${data.id}.json`,
             {
                 method: 'PATCH',
